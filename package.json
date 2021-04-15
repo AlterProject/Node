@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "child_process": "^1.0.2",
+    "diskspace": "^2.0.0",
+    "express": "^4.17.1",
+    "http": "*",
+    "os": "^0.1.1",
+    "os-utils": "^0.0.14",
+    "socket.io": "^4.0.1",
+    "xterm": "^4.11.0"
+  },
+  "scripts": {
+    "start": "start.cmd"
+  }
+}
