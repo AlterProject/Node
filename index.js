@@ -14,6 +14,7 @@ app.use(express.static("www"));
 app.use(require("body-parser").urlencoded({ extended: false }));
 app.use(require("body-parser").json());
 
+// This is the handler for CPU usage.
 app.get("/cpu", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", `http://${panelAddress}/cpu`);
   require("os-utils").cpuUsage((v) => {
@@ -21,6 +22,7 @@ app.get("/cpu", (req, res) => {
   });
 });
 
+// This is the handler for RAM usage.
 app.get("/mem", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", `http://${panelAddress}/mem`);
   return res.send(
@@ -31,6 +33,7 @@ app.get("/mem", (req, res) => {
   );
 });
 
+// This is the handler for Disk usage.
 app.get("/disk", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", `http://${panelAddress}/disk`);
   require("diskspace").check("C", (err, result) => {
@@ -41,15 +44,31 @@ app.get("/disk", (req, res) => {
   });
 });
 
-app.post("/cmd", (req, res) => {
-  console.log(req.body.value);
-  require("child_process").exec(req.body.value, (err, stdout, stderr) => {
-    if (err) return res.send(err);
-    if (stdout) return res.send(stdout);
-    if (stderr) return res.send(stderr);
-  });
+// This is the handler for starting your service.
+app.post("/start", (req, res) => {
+  require("child_process").exec(
+    "YOUR START SCRIPT HERE",
+    (err, stdout, stderr) => {
+      if (err) return res.send(err);
+      if (stdout) return res.send(stdout);
+      if (stderr) return res.send(stderr);
+    }
+  );
 });
 
+// This is the handler for stopping your service.
+app.post("/stop", (req, res) => {
+  require("child_process").exec(
+    "YOUR STOP SCRIPT HERE",
+    (err, stdout, stderr) => {
+      if (err) return res.send(err);
+      if (stdout) return res.send(stdout);
+      if (stderr) return res.send(stderr);
+    }
+  );
+});
+
+// If you want the server to run in Localhost only, make sure that "0.0.0.0" is replaced to "127.0.0.1" or "localhost"
 app.listen(5500, "0.0.0.0", () => {
   console.log("Listening on 5500.");
 });
