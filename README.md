@@ -18,7 +18,7 @@ Go to [AlterProject/Localhost](https://github.com/AlterProject/Localhost) and do
 
 ## Setup Alter (Public server)
 
-Download this repository and the [Alter Node](https://github.com/AlterProject/Node) from GIT/Desktop or from ZIPPED file.
+Download this repository and the [Alter Panel](https://github.com/AlterProject/Panel) from GIT/Desktop or from ZIPPED file.
 
 ### Initialization
 
