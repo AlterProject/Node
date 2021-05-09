@@ -8,9 +8,35 @@
     "os": "^0.1.1",
     "os-utils": "^0.0.14",
     "socket.io": "^4.0.1",
+    "web-terminal": "^0.7.0",
     "xterm": "^4.11.0"
   },
   "scripts": {
-    "start": "start.cmd"
-  }
+    "start": "node ."
+  },
+  "name": "alter-panel",
+  "version": "1.0.0",
+  "description": "Process-Manager for Windows, Mac & Linux.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlterProject/Localhost.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "nodejs",
+    "scripts",
+    "panel",
+    "www",
+    "process",
+    "manager"
+  ],
+  "author": "n0ct3ri4",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/AlterProject/Localhost/issues"
+  },
+  "homepage": "https://github.com/AlterProject/Localhost#readme"
 }

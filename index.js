@@ -46,24 +46,26 @@ app.get("/disk", (req, res) => {
 
 // This is the handler for starting your service.
 app.post("/start", (req, res) => {
-  require("child_process").exec(
-    "YOUR START SCRIPT HERE",
+  // console.log("start");
+  require("child_process").execFile(
+    `${__dirname}/scripts/start.bat`,
     (err, stdout, stderr) => {
-      if (err) return res.send(err);
-      if (stdout) return res.send(stdout);
-      if (stderr) return res.send(stderr);
+      if (err) res.send(err);
+      if (stdout) res.send(stdout);
+      if (stderr) res.send(stderr);
     }
   );
 });
 
 // This is the handler for stopping your service.
 app.post("/stop", (req, res) => {
-  require("child_process").exec(
-    "YOUR STOP SCRIPT HERE",
+  // console.log("stop");
+  require("child_process").execFile(
+    `${__dirname}/scripts/stop.bat`,
     (err, stdout, stderr) => {
-      if (err) return res.send(err);
-      if (stdout) return res.send(stdout);
-      if (stderr) return res.send(stderr);
+      if (err) res.send(err);
+      if (stdout) res.send(stdout);
+      if (stderr) res.send(stderr);
     }
   );
 });
