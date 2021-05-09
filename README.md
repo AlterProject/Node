@@ -4,9 +4,8 @@ This repository contains only back-end files. Click [here](https://github.com/Al
 
 ## Last features
 
-- CPU charge in real time
-- Disk usage in real time
-- RAM usage in real time
+- Security Update
+- Start/Stop manager
 
 ## Setup Alter (Localhost)
 
