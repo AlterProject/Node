@@ -10,9 +10,9 @@ var panelAddress = configs.panelAddress;
  */
 
 // ExpressJS
-app.use(express.static("www"));
 app.use(require("body-parser").urlencoded({ extended: false }));
 app.use(require("body-parser").json());
+app.use(express.static("www"));
 
 // This is the handler for CPU usage.
 app.get("/cpu", (req, res) => {
@@ -47,26 +47,18 @@ app.get("/disk", (req, res) => {
 // This is the handler for starting your service.
 app.post("/start", (req, res) => {
   // console.log("start");
-  require("child_process").execFile(
-    `${__dirname}/scripts/start.bat`,
-    (err, stdout, stderr) => {
-      if (err) res.send(err);
-      if (stdout) res.send(stdout);
-      if (stderr) res.send(stderr);
-    }
-  );
+  require("child_process").exec(`\"${__dirname}/scripts/start.bat\"`);
 });
 
 // This is the handler for stopping your service.
 app.post("/stop", (req, res) => {
-  // console.log("stop");
-  require("child_process").execFile(
-    `${__dirname}/scripts/stop.bat`,
-    (err, stdout, stderr) => {
-      if (err) res.send(err);
-      if (stdout) res.send(stdout);
-      if (stderr) res.send(stderr);
-    }
+  // console.log("start");
+  require("child_process").exec(`\"${__dirname}/scripts/stop.bat\"`);
+});
+
+app.get("/logs", (req, res) => {
+  res.send(
+    require("fs").readFileSync(`${__dirname}/console/logs.txt`, "utf-8")
   );
 });
 

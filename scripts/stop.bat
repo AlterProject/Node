@@ -1,1 +1,1 @@
-echo stop
+echo No stop script > console/logs.txt

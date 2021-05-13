@@ -1,1 +1,1 @@
-echo start
+echo No start script > console/logs.txt
